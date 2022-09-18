@@ -1,5 +1,6 @@
 ---
 - hosts: cluster
+  remote_user: ezzie
   tasks:
   - name: delete deployment file to K8 master
     file:
@@ -9,5 +10,5 @@
     copy:
       src: /etc/ansible/ansible-playbook/nginx-deployment.yaml
       dest: /home/ezzie/
-  - name:
+  - name: deploying the pod into the cluster
     command: kubectl apply -f nginx-deployment.yaml
