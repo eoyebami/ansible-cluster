@@ -1,6 +1,5 @@
 ---
 - hosts: cluster
-  remote_user: ezzie
   tasks:
   - name: delete deployment file to K8 master
     file:
