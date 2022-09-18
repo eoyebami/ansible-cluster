@@ -1,0 +1,13 @@
+---
+- hosts: cluster
+  tasks:
+  - name: delete deployment file to K8 master
+    file:
+      dest: /home/ezzie/nginx-deployment.yaml
+      state: absent 
+  - name: copying new deployment file to K8 master
+    copy:
+      src: /etc/ansible/ansible-playbook/nginx-deployment.yaml
+      dest: /home/ezzie/
+  - name:
+    command: kubectl apply -f nginx-deployment.yaml
